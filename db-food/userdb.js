@@ -6,9 +6,11 @@ console.log("db:", db);
 ///////creatdefult
 let creatdefult = (cb) => {
   db.userdata.create(
-   {name: "yasmin",
-    phone: 0772501473,
-    password:"111aaa"},
+   {firstName: "yasmin",
+    lastName: "Alhajjaj",
+    phone: 1234567890,
+    email:"yasmin.alhajjaj@gmail.com",
+    password:"123456"},
      (err, data) => {
     if (err) {
       cb(err)

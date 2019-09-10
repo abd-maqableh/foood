@@ -15,9 +15,11 @@ db.once('open', function () {
 
 
 let userSchema = new mongoose.Schema({
-  name: String,
-  phone: Number,
-  password:String
+  firstName: String,
+ lastName: String,
+ phone: Number,
+ email:String,
+ password:String
 });
 
 
