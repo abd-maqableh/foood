@@ -25,7 +25,15 @@ mongo.getallpost((result) => {
    res.json(result);
  }) 
  });
- 
+ //////////Post
+ router.post('/post',(req,res)=>{
+   console.log('req.body', req.body)
+   let newPost=req.body;
+   mongo.creatpost(newPost, result => {
+     console.log('result', result)
+    res.send(result);
+  });
+});
 
 /////////updatepost
 router.put('/:bookedup', (req, res) => {

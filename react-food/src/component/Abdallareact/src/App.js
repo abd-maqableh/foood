@@ -1,21 +1,11 @@
-import React,{Component} from 'react';
-import './App.css';
-
-import CreatePost from './components/CreatePost/CreatePost';
-import Post from './components/SlicePost/Post'
-
-class App extends Component{
-  
-  render(){
-  
+import React, { Component } from 'react'
+import CreatPost from './Copmonete/CreatPost'
+export default class App extends Component {
+  render() {
     return (
-      <div className="App" style={{backgroundImage: "url(" + "C:\Users\abdul\Downloads\Food" + ")" }}>
-        <CreatePost/>
-       <Post/>
-      
+      <div>
+        <CreatPost/>
       </div>
-    );
+    )
   }
 }
-
-export default App;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
-export default class Image extends Component {
+import Input from './Input'
+export default class CreatPost extends Component {
     render() {
         return (
             <div>
-               <img src='C:\Users\abdul\Downloads\pic'/>
+                <Input/>
             </div>
         )
     }
