@@ -8,6 +8,12 @@ import About from './Components/About'
 import Home from './Components/Home'
 import Contact from './Components/Contact'
 
+//////////ahmad
+import SignUp from "./Components/SignUp";
+import SignIn from "./Components/SignIn";
+
+
+
 export default class Yasmin extends Component {
     state = {};
   
@@ -21,6 +27,25 @@ export default class Yasmin extends Component {
   <Route path="/" exact component={Home} />
   <Route path="/About"  component={About} />
   <Route path="/Contact"  component={Contact} />
+
+
+{/* //////////////Ahmad */}
+ <div className="App">
+          <div className="App__Aside">
+          </div>
+
+          <div className="App__Form">
+           
+
+            <Route exact path="/" component={SignUp}></Route>
+            <Route path="/sign-in" component={SignIn}></Route>
+          </div>
+        </div>
+
+
+
+
+
 
      
      </Router>

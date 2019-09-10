@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route,Link } from 'react-router-dom';
 
+import {  NavLink } from "react-router-dom";
+
 export default function About() {
   
     
@@ -8,6 +10,27 @@ export default function About() {
  <>
   {/* <Link to="/"> */}
   <h1>Home</h1>
+  <div className="FormTitle">
+              <NavLink
+                to="/sign-in"
+                activeClassName="FormTitle__Link--Active"
+                className="FormTitle__Link"
+              >
+                Sign In
+              </NavLink>{" "}
+              or{" "}
+              <NavLink
+                exact
+                to="/"
+                activeClassName="FormTitle__Link--Active"
+                className="FormTitle__Link"
+              >
+                Sign Up
+              </NavLink>
+            </div>
+
+
+
   {/* </Link> */}
   </>
   ); 
