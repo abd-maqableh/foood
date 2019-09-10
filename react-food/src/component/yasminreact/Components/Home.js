@@ -7,9 +7,10 @@ export default function About() {
   
     
   return(
- <>
+ <div >
   {/* <Link to="/"> */}
-  <h1>Home</h1>
+  {/* <h1>Home</h1> */}
+  <center>
   <div className="FormTitle">
               <NavLink
                 to="/sign-in"
@@ -28,11 +29,11 @@ export default function About() {
                 Sign Up
               </NavLink>
             </div>
-
+            </center>
 
 
   {/* </Link> */}
-  </>
+  </div>
   ); 
 
 }

@@ -5,13 +5,17 @@ export default function About() {
   
     
   return(
- <>
+ <div style={{style}} >
   
   <h1>About</h1>
 
-  </>
+  </div>
   ); 
 
 }
 
   
+const style ={
+
+  
+}

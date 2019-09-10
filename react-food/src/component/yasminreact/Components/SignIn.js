@@ -89,10 +89,9 @@ export class SignIn extends Component {
   render() {
     const { formErrors } = this.state;
     return (
-      <div className="wrapper">
+      <div className="wrapper"   >
         <div className="form-wrapper">
-          <h1>Food Donation</h1>
-          <h3>Sign In</h3>
+          <h1>Sign-in</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             
             <div className="email">

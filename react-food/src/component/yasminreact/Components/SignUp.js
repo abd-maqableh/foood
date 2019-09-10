@@ -110,7 +110,7 @@ export class SignUp extends Component {
       
       <div className="wrapper">
         <div className="form-wrapper">
-          <h1>Food Donation</h1>
+          <h1>Sign-Up</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="firstName">
               <label htmlFor="firstName">First Name</label>

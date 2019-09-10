@@ -20,7 +20,7 @@ export default class Yasmin extends Component {
     render() {
       return(
         // <>
-      <Router>
+      <Router  >
 
         <Nav/>
 
