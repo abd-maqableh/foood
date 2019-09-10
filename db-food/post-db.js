@@ -31,6 +31,32 @@ let creatpost = (newPost,cb) => {
   
 }
 
+
+/////////newpost
+let newpost=(cb,namefood,description,location,booking) =>{
+db.fooddata.create(
+  {
+    namefood: namefood,
+  description: description,
+  location: location,
+  booking: booking,
+  },(err, data) => {
+    if (err) {
+      cb(err)
+    } else {
+      cb(data)
+    }
+  })
+}
+
+
+
+
+
+
+
+
+
 ///////getallpost
 let getallpost = (cb) => {
 db.fooddata.find({}, (err, data) => {
@@ -61,6 +87,7 @@ db.fooddata.find({}, (err, data) => {
 
   module.exports = {
     creatdefult,
+    newpost,
     getallpost,
     updatepost,
     creatpost   

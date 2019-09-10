@@ -17,19 +17,19 @@ router.get('/defult', (req, res) => {
 });
 
 ////////////newuser
-router.post('/:name/:phone/:password', (req, res) => {
+// router.post('/:name/:phone/:password', (req, res) => {
  
-   let name = encodeURIComponent(req.params.name);
-   let phone = encodeURIComponent(req.params.phone);
-   let password = encodeURIComponent(req.params.password);
+//    let name = encodeURIComponent(req.params.name);
+//    let phone = encodeURIComponent(req.params.phone);
+//    let password = encodeURIComponent(req.params.password);
 
-   console.log("helloooooooooooooooooooo server");
-   console.log("server",name,phone,password);
+//    console.log("helloooooooooooooooooooo server");
+//    console.log("server",name,phone,password);
   
-   mongo.newuser((result) => {
-      res.json(result);
-    },name,phone,password)
- });
+//    mongo.newuser((result) => {
+//       res.json(result);
+//     },name,phone,password)
+//  });
 
 
 //////////////getall
@@ -41,16 +41,16 @@ router.get('/all', (req, res) => {
 
 
 ////////////////getlogin
-router.get('/:name/:password', (req, res) => { 
-  let name = encodeURIComponent(req.params.name);
-  let password = encodeURIComponent(req.params.password);
+// router.get('/:name/:password', (req, res) => { 
+//   let name = encodeURIComponent(req.params.name);
+//   let password = encodeURIComponent(req.params.password);
 
-  console.log("login");
+//   console.log("login");
 
-  mongo.getlogin((result) => {
-    res.json(result);
-  },name,password)
-});
+//   mongo.getlogin((result) => {
+//     res.json(result);
+//   },name,password)
+// });
 
 
 module.exports = router;
