@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import axios from 'axios';
+
 
 // import SignIn from "/SignIn"
 
@@ -50,11 +50,6 @@ export class SignIn extends Component {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
 
-    axios.post('http://localhost:9000/SignIn', user)
-    .then(res => {
-      console.log(res.data);
-    })
-    .catch(err => console.log(err))
   };
 
   handleChange = e => {
