@@ -22,6 +22,7 @@ let userSchema = new mongoose.Schema({
 
 
 let foodSchema = new mongoose.Schema({
+
   namefood: String,
   amount:String,
   description: String,
