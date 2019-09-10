@@ -8,7 +8,7 @@ const mongo =require ("../db-food/post-db")
 
 /////////////////////
 router.get('/', (req, res) => {
-  res.send("recipe router");
+  res.send("post router");
 });
 
 ///////////creatdefult
@@ -17,6 +17,26 @@ router.get('/defult', (req, res) => {
     res.json(result);
   })
 });
+
+
+////////////newpost
+router.post('/:namefood/:description/:location/:booking', (req, res) => {
+ 
+  let namefood = encodeURIComponent(req.params.namefood);
+  let description = encodeURIComponent(req.params.description);
+  let location = encodeURIComponent(req.params.location);
+  let booking = encodeURIComponent(req.params.booking);
+
+
+  console.log("helloooooooooooooooooooo server");
+  console.log("server",namefood,description,location,booking);
+ 
+  mongo.newpost((result) => {
+     res.json(result);
+   },namnamefoode,description,location,booking)
+});
+
+
 
 
 /////////getallpost

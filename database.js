@@ -22,9 +22,10 @@ let userSchema = new mongoose.Schema({
 
 
 let foodSchema = new mongoose.Schema({
-  numpost:Number,
-  name: String,
+  namefood: String,
+  amount:String,
   description: String,
+  location: String,
   booking: Boolean,
 });
 
