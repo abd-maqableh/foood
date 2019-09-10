@@ -5,9 +5,10 @@ const db =require("../database")
 ////////////creatdefult
 let creatdefult = (cb) => {
   db.fooddata.create(
-    {numpost:1,
+    {
    name: "mansaf",
   description:"thjhdcsvbgnhnggbfvf",
+  location: "Amman",
   booking: true,
 
 },(err, data) => {
@@ -18,6 +19,32 @@ let creatdefult = (cb) => {
     }
   })
 }
+
+
+
+/////////newpost
+let newpost=(cb,namefood,description,location,booking) =>{
+db.fooddata.create(
+  {
+    namefood: namefood,
+  description: description,
+  location: location,
+  booking: booking,
+  },(err, data) => {
+    if (err) {
+      cb(err)
+    } else {
+      cb(data)
+    }
+  })
+}
+
+
+
+
+
+
+
 
 
 ///////getallpost
@@ -50,6 +77,7 @@ db.fooddata.find({}, (err, data) => {
 
   module.exports = {
     creatdefult,
+    newpost,
     getallpost,
     updatepost   
   }
