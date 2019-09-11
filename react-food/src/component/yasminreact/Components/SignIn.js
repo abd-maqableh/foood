@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import axios from 'axios';
+//import axios from 'axios';
+import {  NavLink } from "react-router-dom";
 
 // import SignIn from "/SignIn"
 
@@ -28,9 +29,11 @@ export class SignIn extends Component {
     super(props);
 
     this.state = {
+      firstName:null,
       email: null,
       password: null,
       formErrors: {
+        firstName:"",
         email: "",
         password: "",
 
@@ -89,11 +92,53 @@ export class SignIn extends Component {
   render() {
     const { formErrors } = this.state;
     return (
+<>
+<center>
+  <div className="FormTitle">
+              <NavLink
+                to="/sign-in"
+                activeClassName="FormTitle__Link--Active"
+                className="FormTitle__Link"
+              >
+                Sign In
+              </NavLink>{" "}
+              or{" "}
+              <NavLink
+                exact
+                to="/"
+                activeClassName="FormTitle__Link--Active"
+                className="FormTitle__Link"
+              >
+                Sign Up
+              </NavLink>
+            </div>
+            </center>
+
+
       <div className="wrapper"   >
         <div className="form-wrapper">
-          <h1>Sign-in</h1>
+          <h1 style={{color:"grey"}} >Welcome back!</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             
+          <div className="email">
+              <label htmlFor="firstName">firstName</label>
+              <input
+                className={formErrors.firstName.length > 0 ? "error" : null}
+                placeholder="firstName"
+                type="text"
+                name="firstName"
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.firstName.length > 0 && (
+                <span className="errorMessage">{formErrors.firstName}</span>
+              )}
+            </div>
+
+
+
+
+
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
@@ -123,7 +168,7 @@ export class SignIn extends Component {
               )}
             </div>
             <div className="createAccount">
-              <button type="submit">Sign In</button>
+              <button type="submit" onClick={this.props.getlogin.bind(this,this.state.firstName,this.state.email,this.state.password)} >Sign In</button>
               <Link to="/" className="FormField__Link">
               Create an account
             </Link>
@@ -131,6 +176,7 @@ export class SignIn extends Component {
           </form>
         </div>
       </div>
+      </>
     );
   }
 }

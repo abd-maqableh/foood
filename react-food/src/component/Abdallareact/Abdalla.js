@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CreatPost from './Copmonete/CreatPost'
-export default class App extends Component {
+export default class Abdalla extends Component {
   render() {
     return (
       <div>

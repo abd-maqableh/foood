@@ -16,20 +16,22 @@ router.get('/defult', (req, res) => {
   })
 });
 
-////////////newuser
-// router.post('/:name/:phone/:password', (req, res) => {
+/////ahmad///////newuser
+router.post('/:firstName/:lastName/:phone/:email/:password', (req, res) => {
  
-//    let name = encodeURIComponent(req.params.name);
-//    let phone = encodeURIComponent(req.params.phone);
-//    let password = encodeURIComponent(req.params.password);
+   let firstName = encodeURIComponent(req.params.firstName);
+   let lastName = encodeURIComponent(req.params.lastName);
+   let phone = encodeURIComponent(req.params.phone);
+   let email = encodeURIComponent(req.params.email);
+   let password = encodeURIComponent(req.params.password);
 
-//    console.log("helloooooooooooooooooooo server");
-//    console.log("server",name,phone,password);
+   console.log("helloooooooooooooooooooo server");
+   console.log("server",firstName,lastName,phone,email,password);
   
-//    mongo.newuser((result) => {
-//       res.json(result);
-//     },name,phone,password)
-//  });
+   mongo.newuser((result) => {
+      res.json(result);
+    },firstName,lastName,phone,email,password)
+ });
 
 
 //////////////getall
@@ -40,17 +42,21 @@ router.get('/all', (req, res) => {
 });
 
 
-////////////////getlogin
-// router.get('/:name/:password', (req, res) => { 
-//   let name = encodeURIComponent(req.params.name);
-//   let password = encodeURIComponent(req.params.password);
+///////ahmad///////getlogin
+router.get('/:firstName/:email/:password', (req, res) => {
+  let firstName = encodeURIComponent(req.params.firstName); 
+  let email = encodeURIComponent(req.params.email);
+  let password = encodeURIComponent(req.params.password);
 
-//   console.log("login");
+  console.log("login");
+  console.log('server', firstName)
+  console.log('email', email)
+  console.log('password', password)
 
-//   mongo.getlogin((result) => {
-//     res.json(result);
-//   },name,password)
-// });
+  mongo.getlogin((result) => {
+    res.json(result);
+  },firstName,password)
+});
 
 
 module.exports = router;

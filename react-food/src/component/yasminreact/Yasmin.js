@@ -1,8 +1,8 @@
 
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Search from './Components/Search'
+import axios from 'axios';
+//import Search from './Components/Search'
 import Nav from './Components/Nav'
 import About from './Components/About'
 import Home from './Components/Home'
@@ -15,8 +15,47 @@ import SignIn from "./Components/SignIn";
 
 
 export default class Yasmin extends Component {
-    state = {};
+    state = {
+      user:[],
+      linkLogin: "/About",
+
+    };
   
+    ////////////ahmad/////signup
+    newuser=(firstName,lastName,phone,email,password,e)=>{
+      e.preventDefault();
+      axios.post(`/user/${firstName}/${lastName}/${phone}/${email}/${password}`)
+      .then(response => {
+        // this.setState({ user: response.data });
+        alert( `sucssfuly to Creat the new acount`)
+      });
+   
+  };
+
+  ///////////ahmad ///login
+  getlogin=(firstName,email,password)=>{
+    console.log("getUser");
+    console.log('firstName', firstName)
+    console.log(email);
+    console.log(password)
+    axios.get(`/user/${firstName}/${email}/${password}`)
+    .then(response => {
+      this.setState({ user: response.data });
+      if (this.state.user.length > 0) {
+        console.log(this.state.user)
+        window.location = this.state.linkLogin;
+      }  
+  });
+
+};
+
+
+
+    
+
+
+
+
     render() {
       return(
         // <>
@@ -37,8 +76,8 @@ export default class Yasmin extends Component {
           <div className="App__Form">
            
 
-            <Route exact path="/" component={SignUp}></Route>
-            <Route path="/sign-in" component={SignIn}></Route>
+            <Route exact path="/" component={() => <SignUp newuser={this.newuser}/>} />
+            <Route path="/sign-in" component={() => <SignIn getlogin={this.getlogin}/>}/>
           </div>
         </div>
 

@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
-const formValid = ({ formErrors, ...rest }) => {
-  let valid = true;
+// const formValid = ({ formErrors, ...rest }) => {
+//   let valid = true;
 
-  // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
-    val.length > 0 && (valid = false);
-  });
+//   // validate form errors being empty
+//   Object.values(formErrors).forEach(val => {
+//     val.length > 0 && (valid = false);
+//   });
 
-  // validate the form was filled out
-  Object.values(rest).forEach(val => {
-    val === null && (valid = false);
-  });
+//   // validate the form was filled out
+//   Object.values(rest).forEach(val => {
+//     val === null && (valid = false);
+//   });
 
-  return valid;
-};
+//   return valid;
+// };
 
 export class SignUp extends Component {
   constructor(props) {
@@ -28,34 +28,34 @@ export class SignUp extends Component {
       firstName: null,
       lastName: null,
       email: null,
-      phoneNumber: null,
+      phone: null,
       password: null,
       formErrors: {
         firstName: "",
         lastName: "",
         email: "",
-        phoneNumber: Number,
+        phone: Number,
         password: "",
 
       }
     };
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    if (formValid(this.state)) {
-      console.log(`
-      --SUBMITTING--
-      First Name: ${this.state.firstName}
-      Last Name: ${this.state.lastName}
-      Phone Number: ${this.state.phoneNumber}
-      Email: ${this.state.email}
-      Password: ${(this.state.password)}
-      `);
-    } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-    }
-  };
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   if (formValid(this.state)) {
+  //     console.log(`
+  //     --SUBMITTING--
+  //     First Name: ${this.state.firstName}
+  //     Last Name: ${this.state.lastName}
+  //     Phone Number: ${this.state.phoneNumber}
+  //     Email: ${this.state.email}
+  //     Password: ${(this.state.password)}
+  //     `);
+  //   } else {
+  //     console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+  //   }
+  // };
 
   handleChange = e => {
     e.preventDefault();
@@ -79,8 +79,8 @@ export class SignUp extends Component {
             ? "minimum 3 charachters required"
             : "";    
         break;
-        case "phoneNumber":
-          formErrors.phoneNumber = 
+        case "phone":
+          formErrors.phone = 
           value.length < 10
           ? "minimun 10 numbers required"
           : "";
@@ -140,7 +140,22 @@ export class SignUp extends Component {
                 <span className="errorMessage">{formErrors.lastName}</span>
               )}
             </div>
-            <div className="email">
+           <div className="phone">
+             <label htmlFor="phone">Phone Number</label>
+             <input
+               className={formErrors.phone.length > 0 ? "error" : null}
+               placeholder="Phone Number"
+               type="text"
+               name="phone"
+               noValidate
+               onChange={this.handleChange}
+             />
+             {formErrors.phone.length > 10 && (
+               <span className="errorMessage">{formErrors.phone}</span>
+             )}
+           </div>
+
+          <div className="email">
               <label htmlFor="email">Email</label>
               <input
                 className={formErrors.email.length > 0 ? "error" : null}
@@ -170,7 +185,7 @@ export class SignUp extends Component {
               )}
             </div>
             <div className="createAccount">
-              <button type="submit">Create Account</button>
+              <button type="submit" onClick={this.props.newuser.bind(this,this.state.firstName,this.state.lastName,this.state.phone,this.state.email,this.state.password)} >Create Account</button>
               <Link to="/sign-in" className="FormField__Link">
               I'm already member
             </Link>

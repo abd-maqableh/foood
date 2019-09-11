@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-
-import { BrowserRouter as Router, Route,Link } from 'react-router-dom';
+import React from "react";
+import { Link } from 'react-router-dom';
 export default function Nav() {
   
     
@@ -12,10 +11,10 @@ export default function Nav() {
 
      <ul style={{ backgroundColor:"grey", gridColumn:"2/4",width:"100%", display:"flex", justifyContent:"space-between", listStyle:"none", position:"relative" }} >
      <Link style={{ color:"white" }} to="/" ><li>Home</li> </Link> 
-     <Link style={{ color:"white" }} to="/About" > <li>About</li> </Link>  
-     <Link style={{ color:"white" }} to="/Contact" ><li>Contact</li></Link> 
+     || <Link style={{ color:"white" }} to="/About" > <li>About</li> </Link>  
+     ||<Link style={{ color:"white" }} to="/Contact" ><li>Contact</li></Link> 
      {/* <li style= {{ display:"flex", justifyContent:"center", alignItems:"flex-end" }} ><h1>Your food is my food</h1></li> */}
-          <h1 style= {{ display:"flex", alignItems:"flex-end" , justifyContent:"center" }}>your food is my food</h1>
+     <h1 style= {{ display:"flex", alignItems:"flex-end" , justifyContent:"center" }}>your food is my food</h1>
 
      </ul>
      {/* <h1 style= {{ display:"flex", alignItems:"flex-end" }}>your food is my food</h1> */}

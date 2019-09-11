@@ -20,20 +20,21 @@ let creatdefult = (cb) => {
   })
 }
 
-///////////////newuser
-// let newuser = (cb,name,phone,balance,password) => {
-//   db.userdata.create({ name: name,
-//     phone: phone,
-//     balance:balance,
-//     password:password},
-//      (err, data) => {
-//     if (err) {
-//       cb(err)
-//     } else {
-//       cb(data)
-//     }
-//   })
-// }
+//////ahmad///////newuser
+let newuser = (cb,firstName,lastName,phone,email,password) => {
+  db.userdata.create({ firstName: firstName,
+    lastName:lastName,
+    phone: phone,
+    email:email,
+    password:password},
+     (err, data) => {
+    if (err) {
+      cb(err)
+    } else {
+      cb(data)
+    }
+  })
+}
 
 
 ///////////getall
@@ -50,22 +51,22 @@ let getall = cb => {
 
 
 
-//////////////getlogin
-// let getlogin = (cb,name,password) => {
-//   db.userdata.find({name:name , password:password}, (err, data) => {
-//     if (err) {
-//       cb(err);
-//     } else {
-//       console.log("data:", data);
-//       cb(data);
-//     }
-//   });
-// };
+/////ahmad///////getlogin
+let getlogin = (cb,firstName,password) => {
+  db.userdata.find({firstName:firstName , password:password}, (err, data) => {
+    if (err) {
+      cb(err);
+    } else {
+      console.log("data:", data);
+      cb(data);
+    }
+  });
+};
 
 
 module.exports = {
   creatdefult,
     newuser,
     getall,
-    getlogin
+     getlogin
 };
