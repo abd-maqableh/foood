@@ -14,7 +14,7 @@ export default class App extends Component {
     render() {
       return(
      <>
-        {/* <Abdalla /> */}
+        <Abdalla />
         
      {/* <Router> */}
 {/* <Yasmin/> */}

@@ -6,7 +6,7 @@ export default class Abdulla extends Component {
   render() {
     return (
       <div>
-        {/* <CreatPost/> */}
+        <CreatPost/>
         {/* <Footer/> */}
         <PostItem />
       </div>
